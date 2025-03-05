@@ -5,6 +5,7 @@ class MyTestCase(unittest.TestCase):
     def setUp(self):
         print("* setUp()")
         self.scart = sc.ShoppingCart()
+        self.scartempty = sc.ShoppingCart()
         self.scart.add_product("Mąka",4,2)
 
 
@@ -16,7 +17,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_remove_product(self):
         print("** remove_product()")
-        result = self.scart.remove_product("Mleko")
+        result = self.scart.remove_product("Mąka")
         self.assertEqual(result, True)
         pass
 
@@ -29,7 +30,7 @@ class MyTestCase(unittest.TestCase):
     def test_get_products(self):
         print("** get_products()")
         with self.assertRaises(ValueError):
-            self.scart.get_products()
+            self.scartempty.get_products()
         pass
 
     def test_count_products(self):
